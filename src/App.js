@@ -7,16 +7,15 @@ import Clock from "./components/clock/clock";
 import Contact from "./components/contact/contact";
 import Navigation from "./components/navigation/navigation";
 import Nomatch from "./components/nomatch/nomatch";
+import Jeopardy from "./components/jeopardy/Jeopardy";
 
 class App extends Component {
   render() {
     return (
       // div was here
       <div>
-       
-       <Navigation />
+        <Navigation />
         <Switch>
-      
           <Route
             exact
             path="/"
@@ -35,6 +34,10 @@ class App extends Component {
           </Route>
           <Route path="/contact" component={Contact}>
             <Contact />
+          </Route>
+
+          <Route path="/jeopardy" component={Jeopardy}>
+            <Jeopardy />
           </Route>
 
           <Route path="/nomatch" component={Nomatch}>
