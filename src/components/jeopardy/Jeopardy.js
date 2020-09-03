@@ -72,11 +72,20 @@ class Jeopardy extends Component {
   render() {
     if (this.state.submitted) {
       let theTruth;
-      console.log(this.state.data.answer.toLowerCase())
-      if (
-        this.state.formData.userAnswer.toLowerCase() ===
-        this.state.data.answer.toLowerCase()
-      ) {
+      let theCorrectAnswer;
+      const regex = /[a-z]/g;
+      let userAnswerString = this.state.formData.userAnswer
+        .toLowerCase()
+        .match(regex);
+      if (this.state.formData.userAnswer !== "") {
+        userAnswerString = this.state.formData.userAnswer.toLowerCase().match(regex)
+        {userAnswerString = userAnswerString.replace('',',')};
+      } else {
+        userAnswerString = "ENNNT";
+      }
+      console.log("user answer: ", userAnswerString.toString());
+
+      if (userAnswerString === theCorrectAnswer) {
         theTruth = "Correctamundo!";
         this.state.score = this.state.score + this.state.data.value;
       } else {
